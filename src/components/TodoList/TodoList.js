@@ -16,11 +16,11 @@ const TodoList = () => {
   const todos = useSelector((state) => {
     if (state.filter === "completed") {
       return state.todos.filter((todo) => todo.completed);
-    } else if (state.filter === "current") {
-      return state.todos.filter((todo) => !todo.completed);
-    } else {
-      return state.todos;
     }
+    if (state.filter === "current") {
+      return state.todos.filter((todo) => !todo.completed);
+    }
+    return state.todos;
   });
   const dispatch = useDispatch();
   const [editedIndex, setEditedIndex] = useState(null);
@@ -57,7 +57,31 @@ const TodoList = () => {
             style={{
               textDecoration: todo.completed ? "line-through" : "none",
             }}>
-            {editedIndex !== index ? (
+            {editedIndex === index ? (
+              <Card>
+                <CardContent className="flex  ">
+                  <TextField
+                    sx={{
+                      marginRight: "auto",
+                    }}
+                    className="w-full md:w-[35%] mr-0 md:mr-2 mb-2 md:mb-0"
+                    autoFocus
+                    variant="outlined"
+                    type="text"
+                    value={editedText}
+                    onChange={handleEditChange}
+                  />
+                  {editedIndex === index ? (
+                    <Button
+                      className="w-full md:w-auto"
+                      variant="contained"
+                      onClick={() => handleEditSave(index)}>
+                      Save
+                    </Button>
+                  ) : null}
+                </CardContent>
+              </Card>
+            ) : (
               <Card className="border-6 border-l border-l-emerald-500">
                 <CardContent className="flex ">
                   <span>{todo.text}</span>
@@ -81,30 +105,6 @@ const TodoList = () => {
                       <DeleteIcon />
                     </IconButton>
                   </div>
-                </CardContent>
-              </Card>
-            ) : (
-              <Card>
-                <CardContent className="flex  ">
-                  <TextField
-                    sx={{
-                      marginRight: "auto",
-                    }}
-                    className="w-[35%]"
-                    autoFocus
-                    variant="outlined"
-                    type="text"
-                    value={editedText}
-                    onChange={handleEditChange}
-                  />
-                  {editedIndex === index ? (
-                    <Button
-                      variant="contained"
-                      className="py-5 "
-                      onClick={() => handleEditSave(index)}>
-                      Save
-                    </Button>
-                  ) : null}
                 </CardContent>
               </Card>
             )}

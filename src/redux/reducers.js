@@ -5,7 +5,7 @@ const initialState = {
 
 const todoReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_TODO":
+    case "ADD_TODO": {
       return {
         ...state,
         todos: [
@@ -13,14 +13,16 @@ const todoReducer = (state = initialState, action) => {
           { text: action.payload.text, completed: false },
         ],
       };
-    case "DELETE_TODO":
+    }
+    case "DELETE_TODO": {
       return {
         ...state,
         todos: state.todos.filter(
           (todo, index) => index !== action.payload.index
         ),
       };
-    case "EDIT_TODO":
+    }
+    case "EDIT_TODO": {
       return {
         ...state,
         todos: state.todos.map((todo, index) =>
@@ -29,7 +31,8 @@ const todoReducer = (state = initialState, action) => {
             : todo
         ),
       };
-    case "TOGGLE_TODO":
+    }
+    case "TOGGLE_TODO": {
       return {
         ...state,
         todos: state.todos.map((todo, index) =>
@@ -38,25 +41,30 @@ const todoReducer = (state = initialState, action) => {
             : todo
         ),
       };
-    case "SET_FILTER":
+    }
+    case "SET_FILTER": {
       return {
         ...state,
         filter: action.payload.filter,
       };
-    case "SET_ALL_COMPLETED":
+    }
+    case "SET_ALL_COMPLETED": {
       return {
         ...state,
         todos: state.todos.map((todo) => ({ ...todo, completed: true })),
       };
+    }
 
-    case "SET_ALL_UNCOMPLETED":
+    case "SET_ALL_UNCOMPLETED": {
       return {
         ...state,
         todos: state.todos.map((todo) => ({ ...todo, completed: false })),
       };
+    }
 
-    default:
+    default: {
       return state;
+    }
   }
 };
 

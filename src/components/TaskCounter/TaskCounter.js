@@ -27,14 +27,16 @@ const TaskCounter = () => {
           Uncompleted tasks: {todos.filter((todo) => !todo.completed).length}
         </p>
       </div>
-      <div className="flex text-sm gap-5 mt-4">
+      <div className="flex flex-col md:flex-row text-sm gap-5 mt-4">
         <Button
+          className="w-full md:w-auto"
           variant="contained"
           onClick={handleSetAllCompleted}
           disabled={allCompleted}>
           Mark All Completed
         </Button>
         <Button
+          className="w-full md:w-auto mt-2 md:mt-0"
           variant="contained"
           onClick={handleSetAllUncompleted}
           disabled={allUncompleted}>

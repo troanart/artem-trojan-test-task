@@ -16,9 +16,9 @@ const TodoFilter = () => {
   };
 
   return (
-    <div className="flex mb-4">
+    <div className="flex flex-col md:flex-row items-center mb-4">
       <TextField
-        className="w-[70%]"
+        className="w-full md:w-[70%] mr-0 md:mr-2 mb-2 md:mb-0"
         id="outlined-basic"
         label="Enter filter text"
         variant="outlined"
@@ -26,7 +26,13 @@ const TodoFilter = () => {
         value={filterText}
         onChange={handleFilterChange}
       />
-      <Button variant="contained" className="w-[30%]" onClick={applyFilter}>
+      <Button
+        style={{
+          padding: 16,
+        }}
+        className="w-full md:w-[30%] "
+        variant="contained"
+        onClick={applyFilter}>
         Apply
       </Button>
     </div>

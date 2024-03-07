@@ -15,16 +15,16 @@ const TodoSorter = () => {
   };
 
   return (
-    <div className="flex gap-2 ">
+    <div className="flex flex-col md:flex-row md:gap-2 ">
       <Button
         variant="contained"
         color="primary"
-        className=" w-[50%]"
+        className="w-full md:w-[50%] mb-2 md:mb-0"
         onClick={sortByCompleted}>
         Show Completed
       </Button>
       <Button
-        className=" w-[50%]"
+        className="w-full md:w-[50%]"
         variant="contained"
         color="secondary"
         onClick={sortByUncompleted}>

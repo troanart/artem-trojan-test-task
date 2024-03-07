@@ -1,0 +1,16 @@
+// {
+//   "extends": ["@Wemake-services/javascript"],
+//   "rules": {
+//     "no-restricted-imports": [
+//       "error",
+//       {
+//         "paths": [
+//           {
+//             "name": "import",
+//             "message": "Please avoid using 'import' keyword."
+//           }
+//         ]
+//       }
+//     ]
+//   }
+// }

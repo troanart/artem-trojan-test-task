@@ -26,9 +26,9 @@ const AddTodo = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row items-center mb-4">
       <TextField
-        className="w-[80%] focus:outline-white"
+        className="w-full md:w-[80%] mr-0 md:mr-2 mb-2 md:mb-0 focus:outline-white"
         id="outlined-basic"
         label="Enter task"
         type="text"
@@ -38,7 +38,10 @@ const AddTodo = () => {
       />
 
       <Button
-        className="w-[20%]"
+        style={{
+          padding: 16,
+        }}
+        className="w-full md:w-[20%] p-8 "
         variant="contained"
         onClick={handleSubmit}
         startIcon={<AddIcon />}>

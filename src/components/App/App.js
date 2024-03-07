@@ -8,15 +8,15 @@ import { Card, CardContent } from "@mui/material";
 
 export default function App() {
   return (
-    <div className="flex  justify-center  p-5 w-[100wh] h-[100vh]">
-      <Card className="mr-10 w-[30%]">
+    <div className="flex flex-col md:flex-row justify-center p-5 w-full h-full">
+      <Card className="md:mr-10 md:w-[30%] mb-5 md:mb-0">
         <CardContent>
           <TodoFilter />
           <TodoSorter />
           <TaskCounter />
         </CardContent>
       </Card>
-      <Card className="w-[70%]  ">
+      <Card className="w-full md:w-[70%]">
         <CardContent>
           <AddTodo />
           <Card className="mt-5">
